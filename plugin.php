@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ely Gallery
- * Plugin URI: https://delabon.com/
+ * Plugin URI: https://delabon.com/demo/ely-gallery-wordpress/
  * Description: Powerfull touch support gallery. perfect for your photos and albums. 
  * Author: Sabri Taieb
  * Author URI: https://delabon.com/
