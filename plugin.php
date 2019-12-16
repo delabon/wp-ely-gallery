@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ely Gallery
- * Plugin URI: https://delabon.com/demo/ely-gallery-wordpress/
+ * Plugin URI: https://delabon.com/demo/ely-gallery/
  * Description: Powerfull touch support gallery. perfect for your photos and albums. 
  * Author: Sabri Taieb
  * Author URI: https://delabon.com/
@@ -68,21 +68,21 @@ class Ely_Gallery{
 	
 			wp_enqueue_style(
 				'ely-slick-slider', 
-				plugins_url( '/ely-gallery-wordpress/dist/slick.css', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery/dist/slick.css', dirname( __FILE__ ) ), 
 				array(), 
 				ELY_VERSION 
 			);
 
 			wp_enqueue_style(
 				'ely-style-build', 
-				plugins_url( '/ely-gallery-wordpress/dist/style.build.css', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery/dist/style.build.css', dirname( __FILE__ ) ), 
 				array('ely-slick-slider'), 
 				ELY_VERSION 
 			);
 
 			wp_enqueue_script(
 				'ely-slick-plugin', 
-				plugins_url( '/ely-gallery-wordpress/dist/slick.min.js', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery/dist/slick.min.js', dirname( __FILE__ ) ), 
 				array('jquery'), 
                 ELY_VERSION,
                 true
@@ -90,7 +90,7 @@ class Ely_Gallery{
 
             wp_enqueue_script(
 				'ely-frontend', 
-				plugins_url( '/ely-gallery-wordpress/dist/frontend.min.js', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery/dist/frontend.min.js', dirname( __FILE__ ) ), 
 				array('jquery', 'ely-slick-plugin'), 
                 ELY_VERSION,
                 true
@@ -129,7 +129,7 @@ class Ely_Gallery{
 
 		wp_enqueue_script(
 			'ely-blocks-build', 
-			plugins_url( '/ely-gallery-wordpress/dist/blocks.build.js', dirname( __FILE__ ) ), 
+			plugins_url( '/ely-gallery/dist/blocks.build.js', dirname( __FILE__ ) ), 
 			$dependencies, 
 			ELY_VERSION, 
 			true 
@@ -141,7 +141,7 @@ class Ely_Gallery{
 
 		wp_enqueue_style(
 			'ely-block-editor-build', 
-			plugins_url( '/ely-gallery-wordpress/dist/editor.build.css', dirname( __FILE__ ) ), 
+			plugins_url( '/ely-gallery/dist/editor.build.css', dirname( __FILE__ ) ), 
 			array( 'wp-edit-blocks' ), 
 			ELY_VERSION 
 		);

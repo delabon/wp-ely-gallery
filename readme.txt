@@ -12,7 +12,7 @@ Create awesome, elegant and perfect galleries easily in wordpress. Ely Gallery i
 
 == Description ==
 
-[See the Live demo](https://delabon.com/demo/ely-gallery-wordpress/) | [Support](https://delabon.com/support) | [See Screenshots](#screenshots)
+[See the Live demo](https://delabon.com/demo/ely-gallery/) | [Support](https://delabon.com/support) | [See Screenshots](#screenshots)
 
 [youtube https://www.youtube.com/watch?v=X1plX638Plg]
 
