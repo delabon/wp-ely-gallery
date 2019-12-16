@@ -2,7 +2,7 @@
 Contributors: delabon
 Requires at least: 5
 Tested up to: 5.3
-Stable tag: 3.0.3
+Stable tag: 3.0.4
 Requires PHP: 5.4
 Tags: gallery, gallery plugin, gutenberg, gutenberg gallery, masonry, justified, gutenberg masonry
 License: GPLv2 or later
@@ -79,6 +79,9 @@ No, Ely works out of the box with any WordPress themes. You just need to install
 == Screenshots ==
 
 == Changelog ==
+
+= 3.0.4 =
+* Fixed missing css/js issues
 
 = 3.0.3 =
 * Change Translation domain to 'ely'

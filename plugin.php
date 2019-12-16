@@ -5,7 +5,7 @@
  * Description: Powerfull touch support gallery. perfect for your photos and albums. 
  * Author: Sabri Taieb
  * Author URI: https://delabon.com/
- * Version: 3.0.3
+ * Version: 3.0.4
  */
 
 // Exit if accessed directly.
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Defined
  */
-define('ELY_VERSION', '3.0.3' );
+define('ELY_VERSION', '3.0.4' );
 define('ELY_URL', plugins_url( '', __FILE__ ) );
 define('ELY_DEBUG', false );
 define('ELY_REVIEW_URL', 'https://wordpress.org/support/plugin/ely-gallery/reviews/?rate=5#rate-response' );
