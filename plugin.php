@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ely Gallery
- * Plugin URI: https://delabon.com/demo/ely-gallery/
+ * Plugin URI: https://delabon.com/demo/ely-gallery-wordpress/
  * Description: Powerfull touch support gallery. perfect for your photos and albums. 
  * Author: Sabri Taieb
  * Author URI: https://delabon.com/
- * Version: 3.0.4
+ * Version: 3.1.0
  */
 
 // Exit if accessed directly.
@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Defined
  */
-define('ELY_VERSION', '3.0.4' );
+define('ELY_VERSION', '3.1.0' );
 define('ELY_URL', plugins_url( '', __FILE__ ) );
 define('ELY_DEBUG', false );
 define('ELY_REVIEW_URL', 'https://wordpress.org/support/plugin/ely-gallery/reviews/?rate=5#rate-response' );
-define('ELY_IS_FREE', true );
+
 
 /**
  * Init
@@ -39,7 +39,7 @@ class Ely_Gallery{
         add_action( 'after_setup_theme', array( $this, 'image_sizes') );
 		add_action( 'enqueue_block_assets', array( $this, 'load_assets') );
         add_action( 'enqueue_block_editor_assets', array( $this, 'load_editor_assets'), 9999 );
-        add_action( 'admin_notices', array( $this, 'review_upgrade_notices' ) );
+        // add_action( 'admin_notices', array( $this, 'review_upgrade_notices' ) );
         add_action( 'admin_init', array( $this, 'hide_notices' ) );
 
         require_once __DIR__ . '/src/blocks/index.php';
@@ -68,21 +68,29 @@ class Ely_Gallery{
 	
 			wp_enqueue_style(
 				'ely-slick-slider', 
-				plugins_url( '/ely-gallery/dist/slick.css', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery-wordpress/dist/slick.css', dirname( __FILE__ ) ), 
 				array(), 
 				ELY_VERSION 
 			);
 
 			wp_enqueue_style(
 				'ely-style-build', 
-				plugins_url( '/ely-gallery/dist/style.build.css', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery-wordpress/dist/style.build.css', dirname( __FILE__ ) ), 
 				array('ely-slick-slider'), 
 				ELY_VERSION 
 			);
 
 			wp_enqueue_script(
+				'ely-justified-plugin', 
+				plugins_url( '/ely-gallery-wordpress/dist/justifiedGallery.min.js', dirname( __FILE__ ) ), 
+				array('jquery'), 
+                ELY_VERSION,
+                true
+			);
+
+			wp_enqueue_script(
 				'ely-slick-plugin', 
-				plugins_url( '/ely-gallery/dist/slick.min.js', dirname( __FILE__ ) ), 
+				plugins_url( '/ely-gallery-wordpress/dist/slick.min.js', dirname( __FILE__ ) ), 
 				array('jquery'), 
                 ELY_VERSION,
                 true
@@ -90,8 +98,8 @@ class Ely_Gallery{
 
             wp_enqueue_script(
 				'ely-frontend', 
-				plugins_url( '/ely-gallery/dist/frontend.min.js', dirname( __FILE__ ) ), 
-				array('jquery', 'ely-slick-plugin'), 
+				plugins_url( '/ely-gallery-wordpress/dist/frontend.min.js', dirname( __FILE__ ) ), 
+				array('jquery', 'ely-justified-plugin', 'ely-slick-plugin'), 
                 ELY_VERSION,
                 true
 			);
@@ -116,6 +124,7 @@ class Ely_Gallery{
 	function load_editor_assets(){
 
 		$dependencies = array(
+			'wp-compose',
 			'wp-blocks',
 			'wp-i18n',
 			'wp-element',
@@ -129,19 +138,15 @@ class Ely_Gallery{
 
 		wp_enqueue_script(
 			'ely-blocks-build', 
-			plugins_url( '/ely-gallery/dist/blocks.build.js', dirname( __FILE__ ) ), 
+			plugins_url( '/ely-gallery-wordpress/dist/blocks.build.js', dirname( __FILE__ ) ), 
 			$dependencies, 
 			ELY_VERSION, 
 			true 
 		);
 
-		wp_localize_script( 'ely-blocks-build', 'ELY_PARAMS', [
-			'is_free' => ELY_IS_FREE,
-		]);
-
 		wp_enqueue_style(
 			'ely-block-editor-build', 
-			plugins_url( '/ely-gallery/dist/editor.build.css', dirname( __FILE__ ) ), 
+			plugins_url( '/ely-gallery-wordpress/dist/editor.build.css', dirname( __FILE__ ) ), 
 			array( 'wp-edit-blocks' ), 
 			ELY_VERSION 
 		);

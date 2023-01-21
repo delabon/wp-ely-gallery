@@ -1,9 +1,9 @@
 === Ely - Wordpress Gutenberg Modern Gallery ===
 Contributors: delabon
 Requires at least: 5
-Tested up to: 5.3
-Stable tag: 3.0.4
-Requires PHP: 5.4
+Tested up to: 6.1
+Stable tag: 3.1.0
+Requires PHP: 7.4
 Tags: gallery, gallery plugin, gutenberg, gutenberg gallery, masonry, justified, gutenberg masonry
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ Create awesome, elegant and perfect galleries easily in wordpress. Ely Gallery i
 
 == Description ==
 
-[See the Live demo](https://delabon.com/demo/ely-gallery/) | [Support](https://delabon.com/support) | [See Screenshots](#screenshots)
+[See the Live demo](https://delabon.com/demo/ely-gallery-wordpress/) | [Support](https://delabon.com/support) | [See Screenshots](#screenshots)
 
 [youtube https://www.youtube.com/watch?v=X1plX638Plg]
 
@@ -80,8 +80,12 @@ No, Ely works out of the box with any WordPress themes. You just need to install
 
 == Changelog ==
 
+= 3.1.0 =
+* Hid give review notice.
+* WP 6.1 compatibility
+
 = 3.0.4 =
-* Fixed missing css/js issues
+* Replaced deprecated API.
 
 = 3.0.3 =
 * Change Translation domain to 'ely'

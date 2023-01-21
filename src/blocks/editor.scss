@@ -1,18 +1,5 @@
 @import "common";
 
-.ely-upgrade-notice{
-    padding: 10px;
-    background: #e74c3c;
-    color: white;
-
-    a:hover,
-    a:visited,
-    a{
-        color: white;
-        text-decoration: underline !important;
-    }
-}
-
 .gallery-fg *,
 .gallery-fg{
     box-sizing: border-box;
@@ -102,6 +89,18 @@
     
 }
 
+
+//
+// Fullwidth
+//
+.gallery-fg[data-design="fullwidth"],
+.gallery-fg[data-design="fullwidth"] .item-fg {
+    width: 100%; 
+    display: block;
+    position: relative;
+}
+
+
 // 
 // Grid
 //
@@ -127,17 +126,50 @@
 
 }
 
-//
-// Fullwidth (Premium)
-//
 
 // 
-// Masonry (Premium)
+// Masonry
 // 
+.gallery-fg[data-design="masonry"] {
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+    
+    .item-fg {
+        box-sizing: border-box;
+        position: relative;
+        margin: 0;
+        padding: 20px 10px;
+        
+        img {
+            box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); 
+        }
+    }
+
+}
+
 
 // 
-// Justified (Premium)
+// Justified
 // 
+.gallery-fg[data-design="justified"] {
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+    
+    .item-fg {
+        box-sizing: border-box;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        
+        img {
+            box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); 
+        }
+    }
+
+}
+
 
 // 
 // Breakpoints
@@ -182,6 +214,33 @@
             flex-basis: 20%;
             max-width: 20%;
         }
+    }
+
+}
+
+.gallery-fg[data-design="justified"],
+.gallery-fg[data-design="masonry"] {
+
+    &[data-desktop="1"]{
+        .item-fg{
+            width: 100%;
+        }
+    }
+
+    &[data-desktop="2"]{
+        column-count: 2;
+    }
+
+    &[data-desktop="3"]{
+        column-count: 3;
+    }
+
+    &[data-desktop="4"]{
+        column-count: 4;
+    }
+
+    &[data-desktop="5"]{
+        column-count: 5;
     }
 
 }

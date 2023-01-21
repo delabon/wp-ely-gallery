@@ -24,8 +24,6 @@ function ely_gallery_shortcode( $attr ) {
 		'size'       	=> 'fullsize',
 	), $attr, 'gallery' );
 
-	if( ELY_IS_FREE && $atts['design'] !== 'grid' ) return '';
-
 	$atts = apply_filters( 'ely_gallery_attr_filter', $atts );
 
 	if ( empty( $attr['ids'] ) ) {

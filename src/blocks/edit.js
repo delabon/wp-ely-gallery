@@ -154,9 +154,9 @@ class Edit extends  Component{
                         value={ attributes.design }
                         options={ [
                             { label: __('Grid','ely'), value: 'grid' },
-                            { label: ELY_PARAMS.is_free ? __('Justified (Premium)','ely') : __('Justified','ely'), value: 'justified' },
-                            { label: ELY_PARAMS.is_free ? __('Fullwidth (Premium)','ely') : __('Fullwidth','ely'), value: 'fullwidth' },
-                            { label: ELY_PARAMS.is_free ? __('Masonry (Premium)','ely') : __('Masonry','ely'), value: 'masonry' },
+                            { label: __('Justified','ely'), value: 'justified' },
+                            { label: __('Fullwidth','ely'), value: 'fullwidth' },
+                            { label: __('Masonry','ely'), value: 'masonry' },
                         ] }
                         onChange={ design => {
                             setAttributes({ design }); 
@@ -183,61 +183,45 @@ class Edit extends  Component{
 
             <Fragment>
 
-                { attributes.design === 'grid' && (
-                    
-                    <Fragment> 
-                            
-                        <MediaUpload
-                            gallery = { true }
-                            multiple = { true }
-                            className = {'ely-uploader'}
-                            onSelect = { ( media ) => {
-                                return setAttributes({
-                                    ids: media.map( image => image.id ).join(','),
-                                })
-                            }}
-                            type = { 'image' }
-                            value = { attributes.ids.split(',') }
-                            render = { function( obj ) {
-                                return (
-        
-                                    <Button
-                                        className = { attributes.imageID ? '' : 'button-ely-upload' }
-                                        onClick = { obj.open } 
-                                    >
-                                        <UploadImageIcon/>
-                                    </Button>
-        
-                                )
-                            } }
-                        />
-                        
-                        <style>{this.renderStyle()}</style>
+                <MediaUpload
+                    gallery = { true }
+                    multiple = { true }
+                    className = {'ely-uploader'}
+                    onSelect = { ( media ) => {
+                        return setAttributes({
+                            ids: media.map( image => image.id ).join(','),
+                        })
+                    }}
+                    type = { 'image' }
+                    value = { attributes.ids.split(',') }
+                    render = { function( obj ) {
+                        return (
 
-                        <div 
-                            id={attributes.uid}
-                            data-id={attributes.uid}
-                            class="gallery-fg size-fullsize-fg fg_gallery_started" 
-                            data-design={attributes.design} 
-                            data-desktop={attributes.columns} 
-                            data-tablet={attributes.tabletColumns} 
-                            data-mobile={attributes.mobileColumns} 
-                            data-rowheight={attributes.rowHeight} 
-                        >
-                            {output}
-                        </div>
-                    
-                    </Fragment>
+                            <Button
+                                className = { attributes.imageID ? '' : 'button-ely-upload' }
+                                onClick = { obj.open } 
+                            >
+                                <UploadImageIcon/>
+                            </Button>
 
-                )}
+                        )
+                    } }
+                />
+                
+                <style>{this.renderStyle()}</style>
 
-                { attributes.design !== 'grid' && (
-                    <div className="ely-upgrade-notice">
-                        Please upgrade in order to use the other awesome designs.
-                        <br/>
-                        <a target="_blank" href="https://www.templatemonster.com/wordpress-plugins/ely-gutenberg-gallery-block-wordpress-plugin-83566.html">Upgrade Now</a>
-                    </div>
-                )}
+                <div 
+                    id={attributes.uid}
+                    data-id={attributes.uid}
+                    class="gallery-fg size-fullsize-fg fg_gallery_started" 
+                    data-design={attributes.design} 
+                    data-desktop={attributes.columns} 
+                    data-tablet={attributes.tabletColumns} 
+                    data-mobile={attributes.mobileColumns} 
+                    data-rowheight={attributes.rowHeight} 
+                >
+                    {output}
+                </div>
 
             </Fragment>
 

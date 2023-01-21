@@ -127,9 +127,36 @@
     }
   
     /**
-     * Init Justified Gallery (Premium)
+     * Init Justified Gallery
      */
-    function  execJustified(gallery) {}
+    function  execJustified(gallery) {
+  
+        var rowHeight = gallery.data('rowheight');
+        var margins = gallery.data('margins');
+        var id = gallery.data('id') ? gallery.data('id') : 0;
+  
+        if( ! rowHeight ){
+            rowHeight = 170;
+        }
+        else if( typeof( rowHeight ) !== 'number' ){
+            rowHeight.replace('px','');
+        }
+  
+        if( ! margins ){
+            margins = 0;
+        }
+        else if( typeof( margins ) !== 'number' ){
+            margins.replace('px','');
+        }
+  
+        gallery.justifiedGallery({
+            lastRow : 'nojustify', 
+            rowHeight : rowHeight,
+            rel : 'gallery' + id,
+            selector: '.item-fg',
+            margins : margins,
+        });
+    }
   
     /**
      * Go Full Screen
@@ -238,6 +265,10 @@
      * @param {object} gallery 
      */
     function startGallery( gallery ){
+  
+        if( gallery.data('design') === 'justified' ){
+            execJustified( gallery );
+        }
   
         var items = gallery.find('.item-fg');
         var id = gallery.attr('id').replace('ely-', '');
